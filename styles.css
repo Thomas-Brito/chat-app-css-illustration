@@ -5,16 +5,16 @@
   }
 
   :root {
-    color-scheme: light;
+    color-scheme: light dark;
 
     /* Peso, tamanho/altura da linha, família e família genérica */
     --fonte-1: 500 2.5rem/150% "Rubik", sans-serif;
     --fonte-2: 400 1.125rem/150% "Rubik", sans-serif;
-    --fonte-3: 500 1rem/150% "Rubik", sans-serif;
+    --fonte-3: 700 1rem/150% "Rubik", sans-serif;
     --fonte-4: 400 0.625rem/150% "Rubik", sans-serif;
-    --fonte-5: ;
-    --fonte-6: ;
-    --fonte-7: ;
+    --fonte-5: 500 1rem/150% "Rubik", sans-serif;
+    --fonte-6: 700 1.5rem/150% "Rubik", sans-serif;
+    --fonte-7: 400 1rem/200% "Rubik", sans-serif;
   }
 
   :root[data-theme="light"] {
@@ -39,30 +39,45 @@
   }
 
   :root[data-theme="dark"] {
-    --cor-fonte-1: ;
-    --cor-fonte-2: ;
-    --cor-fonte-3: ;
-    --cor-fonte-4: ;
-    --cor-fonte-5: ;
-    --cor-fonte-6: ;
+    --cor-fonte-1: hsl(0, 0%, 90%);
+    --cor-fonte-2: hsl(0, 0%, 70%);
+    --cor-fonte-3: hsl(0, 0%, 100%);
+    --cor-fonte-4: hsl(276, 100%, 81%);
+    --cor-fonte-5: hsl(276, 55%, 62%);
+    --cor-fonte-6: hsl(271, 15%, 53%);
+    --cor-fonte-7: hsl(206, 6%, 60%);
 
-    --cor-fundo-1: ;
-    --cor-fundo-2: ;
-    --cor-fundo-3: ;
-    --cor-fundo-4: ;
+    --cor-fundo-1: hsl(271, 36%, 12%);
+    --cor-fundo-2: hsl(271, 36%, 18%);
+    --cor-fundo-3: hsl(270, 20%, 20%);
+    --cor-fundo-4: hsl(272, 41%, 25%);
+    --cor-fundo-5: hsl(271, 36%, 14%);
+    --cor-fundo-6: hsla(293, 100%, 33%, 0.1);
+
+    --gradiente-1: linear-gradient(to right, hsl(264, 100%, 61%), hsl(293, 100%, 63%));
+    --gradiente-2: linear-gradient(to left, hsl(264, 100%, 61%), hsl(293, 100%, 63%));
+    --gradiente-3: linear-gradient(to right top, hsl(264, 100%, 61%), hsl(293, 100%, 63%));
   }
-  :root[data-theme="light-dark"] {
-    --cor-fonte-1: ;
-    --cor-fonte-2: ;
-    --cor-fonte-3: ;
-    --cor-fonte-4: ;
-    --cor-fonte-5: ;
-    --cor-fonte-6: ;
 
-    --cor-fundo-1: ;
-    --cor-fundo-2: ;
-    --cor-fundo-3: ;
-    --cor-fundo-4: ;
+  :root[data-theme="light-dark"] {
+    --cor-fonte-1: light-dark(hsl(271, 36%, 24%), hsl(0, 0%, 90%));
+    --cor-fonte-2: light-dark(hsl(270, 7%, 64%), hsl(0, 0%, 70%));
+    --cor-fonte-3: light-dark(hsl(0, 0%, 100%), hsl(0, 0%, 100%));
+    --cor-fonte-4: light-dark(hsl(276, 100%, 81%), hsl(276, 100%, 81%));
+    --cor-fonte-5: light-dark(hsl(276, 55%, 52%), hsl(276, 55%, 62%));
+    --cor-fonte-6: light-dark(hsl(271, 15%, 43%), hsl(271, 15%, 53%));
+    --cor-fonte-7: light-dark(hsl(206, 6%, 79%), hsl(206, 6%, 60%));
+  
+    --cor-fundo-1: light-dark(hsl(0, 0%, 98%), hsl(271, 36%, 12%));
+    --cor-fundo-2: light-dark(hsl(0, 0%, 100%), hsl(271, 36%, 18%));
+    --cor-fundo-3: light-dark(hsl(270, 20%, 96%), hsl(270, 20%, 20%));
+    --cor-fundo-4: light-dark(hsl(272, 41%, 93%), hsl(272, 41%, 25%));
+    --cor-fundo-5: light-dark(hsl(271, 36%, 24%), hsl(271, 36%, 14%));
+    --cor-fundo-6: light-dark(hsla(293, 100%, 63%, 0.1), hsla(293, 100%, 33%, 0.1));
+
+    --gradiente-1: linear-gradient(to right, hsl(264, 100%, 61%), hsl(293, 100%, 63%));
+    --gradiente-2: linear-gradient(to left, hsl(264, 100%, 61%), hsl(293, 100%, 63%));
+    --gradiente-3: linear-gradient(to right top, hsl(264, 100%, 61%), hsl(293, 100%, 63%));
   }
 
   .cor-fonte-1 { color: var(--cor-fonte-1); }
@@ -99,19 +114,98 @@
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    justify-content: center;
+    min-height: 100%;
+    width: 100%;
+  }
+
+  /* * Estilo da modal de mudança de tema */
+  
+  .abrir-modal {
+    background-color: transparent;
+    border: none;
+    border-radius: 50%;
+    opacity: 0.7;
+    padding: 1rem;
+    position: absolute;
+    right: 1rem;
+    top: 1rem;
+  }
+  
+  .abrir-modal:hover {
+    background-color: var(--cor-fundo-1);
+    cursor: pointer;
+  }
+  
+  .modal {
+    background-color: black;
+    background-color: rgba(0, 0, 0, 0.4);
+    display: none;
+    height: 100%;
+    left: 0;
+    overflow: auto;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1;
+  }
+  
+  .conteudo-modal {
+    border: 1px solid #888;
+    border-radius: 1.25rem;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 15% auto;
+    max-width: 20rem;
+    padding: 1rem;
+    width: 100%;
+  }
+  
+  aside p {
+    margin: 0;
+    padding: 0.5rem 0;
+  }
+  
+  .fechar-modal {
+    align-self: center;
+    font-size: 1.75rem;
+    font-weight: bold;
+  }
+  
+  .fechar-modal:hover,
+  .fechar-modal:focus {
+    text-decoration: none;
+    cursor: pointer;
+  }
+  
+  form {
+    text-align: left;
+  }
+  
+  input:hover, label:hover {
+    cursor: pointer;
+  }
+
+/* * Estilos da página */
+
+  main {
+    align-content: center;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
     justify-content: space-evenly;
     margin: 1rem 0;
     min-height: 100%;
     width: 100%;
   }
 
-/* * Estilos da página */
-
   #forma-1 {
     border-radius: 0 0 11rem 11rem;
     height: 34.375rem;
     left: 0;
-    position: absolute;
+    position: fixed;
     top: 0;
     width: max(25%, 22.5rem);
     z-index: -2;
@@ -128,19 +222,14 @@
     z-index: -1;
   }
 
-  .divisao {
-    flex-basis: 40%;
-  }
-
   .smartphone {
     border-radius: 2.5rem;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
     display: flex;
+    flex-basis: 20.625rem;
     flex-direction: column;
     padding: 0.75rem;
     max-height: 42.1875rem;
-    max-width: 20.625rem;
-    min-width: 20.625rem;
     user-select: none;
   }
 
@@ -178,7 +267,7 @@
     margin-left: 5rem;
   }
 
-  .meio {
+  .chat {
     border-radius: 2.5rem;
     display: flex;
     flex-direction: column;
@@ -193,11 +282,7 @@
   
   .samuel-msg {
     align-self: flex-start;
-    animation-duration: 1s;
-    animation-fill-mode: forwards;
-    animation-name: samuel-msg;
     border-radius: 1rem 1rem 1rem 0.5rem;
-    visibility: hidden;
   }
   
   .samuel-msg-4 p, .samuel-msg-5 p {
@@ -217,25 +302,21 @@
   
   .my-msg {
     align-self: flex-end;
-    animation-name: my-msg;
-    animation-duration: 1s;
-    animation-fill-mode: forwards;
     border-radius: 1rem 1rem 0.5rem;
     text-align: justify;
-    visibility: hidden;
   }
   
-  .my-msg-1 { padding: 0; }
+  .my-msg-1 { 
+    padding: 0; 
+  }
   
   .dog-image {
     animation-duration: 0.5s;
-    animation-fill-mode: forwards;
-    animation-name: dog-image;
     border-radius: 1rem;
     display: inline-block;
     width: 3.4375rem;
-    visibility: hidden;
   }
+
   .rodape {
     align-items: center;
     background-color: var(--cor-fundo-2);
@@ -247,12 +328,6 @@
     margin: 1rem;
   }
   
-  .rodape p::after {
-    content: " |";
-    animation: ponteiro 1s infinite;
-    opacity: 1;
-  }
-  
   .seta {
     border-radius: 50%;
     padding: 0.3rem 0.5rem;
@@ -260,18 +335,14 @@
   
   .descricao {
     display: flex;
+    flex-basis: 40%;
     flex-direction: column;
     justify-content: center;
-    width: 60rem;
-  }
-  
-  .paragrafo {
-    max-width: 32rem;
   }
   
   /* * Animações */
   
-  @keyframes samuel-msg {
+  @keyframes mensagens {
     0% {
       opacity: 0;
       transform: translateY(2rem);
@@ -284,32 +355,24 @@
     }
   }
 
-  @keyframes my-msg {
-    0% {
-      opacity: 0;
-      transform: translateY(2rem);
-      visibility: hidden;
-    }
-    100% {
-      opacity: 1;
-      transform: translateY(0);
-      visibility: visible;
-    }
+  .samuel-msg, .my-msg, .dog-image {
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+    animation-name: mensagens;
+    visibility: hidden;
   }
-
-  @keyframes dog-image {
-    0% {
-      opacity: 0;
-      transform: translateY(2rem);
-      visibility: hidden;
-    }
-    100% {
-      opacity: 1;
-      transform: translateY(0);
-      visibility: visible;
-    }
-  }
-
+  
+  .samuel-msg-1 { animation-delay: 1s; }
+  .samuel-msg-2 { animation-delay: 2s; }
+  .dog-image-1 { animation-delay: 3s; }
+  .dog-image-2 { animation-delay: 3.2s; }
+  .dog-image-3 { animation-delay: 3.4s; }
+  .my-msg-2 { animation-delay: 4s; }
+  .my-msg-3 { animation-delay: 5s; }
+  .samuel-msg-3 { animation-delay: 6s; }
+  .samuel-msg-4 { animation-delay: 7s; }
+  .samuel-msg-5 { animation-delay: 8s; }
+  
   @keyframes ponteiro {
     0%, 50% {
       opacity: 1; /* Visível */
@@ -319,39 +382,64 @@
     }
   }
 
-  .samuel-msg-1 { animation-delay: 1s; }
-  .samuel-msg-2 { animation-delay: 2s; }
-  .samuel-msg-3 { animation-delay: 6s; }
-  .samuel-msg-4 { animation-delay: 7s; }
-  .samuel-msg-5 { animation-delay: 8s; }
-
-  .dog-image-1 { animation-delay: 3s; }
-  .dog-image-2 { animation-delay: 3.2s; }
-  .dog-image-3 { animation-delay: 3.4s; }
-  .my-msg-2 { animation-delay: 4s; }
-  .my-msg-3 { animation-delay: 5s; }
+  .rodape p::after {
+    content: " |";
+    animation: ponteiro 1s infinite;
+    opacity: 1;
+  }
 
 /* * Media Queries */
 
   @media only screen and (max-width: 768px) {
-    html, body {
+
+    html, body, main {
       flex-direction: column;
-      min-height: 100vw;
     }
+
     .divisao {
-      flex-basis: 100%;
-      margin: 10%;
+      margin: 5%;
     }
+
+    .smartphone {
+      align-self: center;
+      flex-basis: 20.625rem;
+      flex-grow: 0;
+      min-width: 20.625rem;
+    }
+
     .descricao {
+      flex-basis: 100%;
       text-align: center;
       width: auto;
   }
+    .descricao h1, .descricao p {
+      margin: 1rem;
+    }
+
     #forma-1 {
       border-radius: 0 0 10rem 0;
+      height: 20rem;
       width: 11.25rem;
     }
+
     #forma-2 {
       border-radius: 10rem 0 0 0;
+      height: 20rem;
       width: 11.25rem;
+    }
+  }
+
+  @media only screen and (max-width: 425px) {
+
+    #forma-1 {
+      border-radius: 0 0 10rem 0;
+      height: 12rem;
+      width: 7.5rem;
+    }
+
+    #forma-2 {
+      border-radius: 10rem 0 0 0;
+      height: 12rem;
+      width: 7.5rem;
     }
   }

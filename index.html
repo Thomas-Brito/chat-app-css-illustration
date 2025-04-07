@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="pt-BR" data-theme="light">
+<html lang="pt-BR" data-theme="light-dark">
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <meta name="color-scheme" content="light"/>
+  <meta name="color-scheme" content="light dark"/>
   <link rel="stylesheet" type="text/css" href="styles.css"/>
   <link rel="icon" type="image/x-icon" href="images/favicon-32x32.png"/>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
@@ -14,76 +14,95 @@
 
 <body class="cor-fundo-1">
 
-  <div id="forma-1" class="gradiente-3"></div>
-  <div id="forma-2" class="cor-fundo-6"></div>
-
-  <div class="smartphone divisao cor-fundo-2">
-
-    <div class="meio cor-fundo-3">
-
-      <div class="topo gradiente-1">
-        <div id="forma-3" class="cor-fundo-2"></div>
-        <span class="fonte-3 cor-fonte-3">&#x276E;</span>
-        <img src="images/avatar.jpg" alt="Samuel Green's color photo" class="foto-perfil" draggable="false"/>
-        <p>
-          <span class="fonte-3 cor-fonte-3 altura-linha-100">Samuel Green</span><br>
-          <span class="fonte-4 cor-fonte-4 altura-linha-100">Available to Walk</span>
-        </p>
-        <span class="tres-pontos fonte-3 cor-fonte-3">&#x2807;</span>
-      </div>
-
-      <div class="samuel-msg samuel-msg-1 cor-fundo-4 fonte-4 cor-fonte-5">
-        <p>That sounds great. I’d be happy with that.</p>
-      </div>
-
-      <div class="samuel-msg samuel-msg-2 cor-fundo-4 fonte-4 cor-fonte-5">
-        <p>Could you send over some pictures of your dog, please?</p>
-      </div>
-
-      <div class="my-msg my-msg-1">
-        <img src="images/dog-image-1.jpg" alt="" class="dog-image dog-image-1" draggable="false">
-        <img src="images/dog-image-2.jpg" alt="" class="dog-image dog-image-2" draggable="false">
-        <img src="images/dog-image-3.jpg" alt="" class="dog-image dog-image-3" draggable="false">
-      </div>
-
-      <div class="my-msg my-msg-2 cor-fundo-2 fonte-4 cor-fonte-6">
-        <p>Here are a few pictures. She’s a happy girl!</p>
-      </div>
-
-      <div class="my-msg my-msg-3 cor-fundo-2 fonte-4 cor-fonte-6">
-        <p>Can you make it?</p>
-      </div>
-
-      <div class="samuel-msg samuel-msg-3 cor-fundo-4 fonte-4 cor-fonte-5">
-        <p>She looks so happy! The time we discussed works. How long shall I take her out for?</p>
-      </div>
-
-      <div class="samuel-msg samuel-msg-4 gradiente-2">
-        <p>
-          <span class="fonte-4 cor-fonte-4">30 minute walk</span>
-          <span class="fonte-3 cor-fonte-3">$29</span>
-        </p>
-      </div>
-
-      <div class="samuel-msg samuel-msg-5 gradiente-2">
-        <p>
-          <span class="fonte-4 cor-fonte-4">1 hour walk</span>
-          <span class="fonte-3 cor-fonte-3">$49</span>
-        </p>
-      </div>
-
-      <div class="rodape cor-fundo-2 fonte-4 cor-fonte-7">
-        <p>Type a message…</p>
-        <span class="seta fonte-3 cor-fonte-3 cor-fundo-5">&#x27A4;</span>
-      </div>
+  <aside id="minha-modal" class="modal">
+    <div class="conteudo-modal cor-fundo-5">
+      <p class="fonte-6">Choose the theme:</p>
+      <span class="fechar-modal fonte-6">&times;</span>
+      <form>
+        <input type="radio" id="default" name="tema" value="light-dark" checked/>
+        <label for="default" class="fonte-7">System default</label><br/>
+        <input type="radio" id="light" name="tema" value="light"/>
+        <label for="light" class="fonte-7">Light</label><br/>
+        <input type="radio" id="dark" name="tema" value="dark"/>
+        <label for="dark" class="fonte-7">Dark</label><br/>
+      </form>
     </div>
+  </aside>
+  <button id="abrir-modal" class="abrir-modal cor-fonte-1" title="Theme">&#9681;</button>
+
+  <main>
+    <div id="forma-1" class="gradiente-3"></div>
+    <div id="forma-2" class="cor-fundo-6"></div>
   
+    <div class="smartphone divisao cor-fundo-2">
   
-  </div>
-  <div class="descricao divisao">
-    <h1 class="fonte-1 cor-fonte-1">Simple booking</h1>
+      <div class="chat cor-fundo-3">
   
-    <p class="fonte-2 cor-fonte-2 paragrafo">Stay in touch with our dog walkers through the chat interface. This makes it easy to discuss arrangements and make bookings. Once the walk has been completed you can rate your walker and book again all through the chat.</p>
-  </div>
+        <div class="topo gradiente-1">
+          <div id="forma-3" class="cor-fundo-2"></div>
+          <span class="fonte-3 cor-fonte-3">&#x276E;</span>
+          <img src="images/avatar.jpg" alt="Samuel Green's color photo" class="foto-perfil" draggable="false"/>
+          <p>
+            <span class="fonte-5 cor-fonte-3 altura-linha-100">Samuel Green</span><br>
+            <span class="fonte-4 cor-fonte-4 altura-linha-100">Available to Walk</span>
+          </p>
+          <span class="tres-pontos fonte-3 cor-fonte-3">&#x2807;</span>
+        </div>
+  
+        <div class="samuel-msg samuel-msg-1 cor-fundo-4 fonte-4 cor-fonte-5">
+          <p>That sounds great. I’d be happy with that.</p>
+        </div>
+  
+        <div class="samuel-msg samuel-msg-2 cor-fundo-4 fonte-4 cor-fonte-5">
+          <p>Could you send over some pictures of your dog, please?</p>
+        </div>
+  
+        <div class="my-msg my-msg-1">
+          <img src="images/dog-image-1.jpg" alt="" class="dog-image dog-image-1" draggable="false">
+          <img src="images/dog-image-2.jpg" alt="" class="dog-image dog-image-2" draggable="false">
+          <img src="images/dog-image-3.jpg" alt="" class="dog-image dog-image-3" draggable="false">
+        </div>
+  
+        <div class="my-msg my-msg-2 cor-fundo-2 fonte-4 cor-fonte-6">
+          <p>Here are a few pictures. She’s a happy girl!</p>
+        </div>
+  
+        <div class="my-msg my-msg-3 cor-fundo-2 fonte-4 cor-fonte-6">
+          <p>Can you make it?</p>
+        </div>
+  
+        <div class="samuel-msg samuel-msg-3 cor-fundo-4 fonte-4 cor-fonte-5">
+          <p>She looks so happy! The time we discussed works. How long shall I take her out for?</p>
+        </div>
+  
+        <div class="samuel-msg samuel-msg-4 gradiente-2">
+          <p>
+            <span class="fonte-4 cor-fonte-3">30 minute walk</span>
+            <span class="fonte-3 cor-fonte-3">$29</span>
+          </p>
+        </div>
+  
+        <div class="samuel-msg samuel-msg-5 gradiente-2">
+          <p>
+            <span class="fonte-4 cor-fonte-3">1 hour walk</span>
+            <span class="fonte-3 cor-fonte-3">$49</span>
+          </p>
+        </div>
+  
+        <div class="rodape cor-fundo-2 fonte-4 cor-fonte-7">
+          <p>Type a message…</p>
+          <span class="seta fonte-3 cor-fonte-3 cor-fundo-5">&#x27A4;</span>
+        </div>
+      </div>
+    
+    </div>
+    <div class="descricao divisao">
+      <h1 class="fonte-1 cor-fonte-1">Simple booking</h1>
+    
+      <p class="fonte-2 cor-fonte-2 paragrafo">Stay in touch with our dog walkers through the chat interface. This makes it easy to discuss arrangements and make bookings. Once the walk has been completed you can rate your walker and book again all through the chat.</p>
+    </div>
+  </main>
+
+  <script src="script.js"></script>
 </body>
 </html>
